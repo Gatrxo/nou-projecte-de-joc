@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqyeweyaqld0m"]
+
+[ext_resource type="StyleBox" uid="uid://c4pffb2vxdan" path="res://style/button_1.tres" id="1_5g7jl"]
+[ext_resource type="Script" uid="uid://bm2v73awgtqpo" path="res://scenes/etiqueta.gd" id="2_1ob1h"]
+[ext_resource type="FontFile" uid="uid://8qk3bu201g87" path="res://Fonts/SF-Pro-Display-Regular.otf" id="2_s44sq"]
+[ext_resource type="Texture2D" uid="uid://dovor01owf0n5" path="res://icon/trash.png" id="3_1ob1h"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ljqyw"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+vertical = true
+
+[node name="Etiqueta" type="Panel"]
+custom_minimum_size = Vector2(0, 100)
+offset_left = -479.0
+offset_right = 479.0
+offset_bottom = 100.0
+theme_override_styles/panel = ExtResource("1_5g7jl")
+script = ExtResource("2_1ob1h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.5
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 79
+alignment = 1
+
+[node name="Tipus" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s44sq")
+theme_override_font_sizes/font_size = 40
+text = "+1 Fisica"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ljqyw")
+
+[node name="preu" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s44sq")
+theme_override_font_sizes/font_size = 40
+text = "+ 7€"
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ljqyw")
+
+[node name="metode" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s44sq")
+theme_override_font_sizes/font_size = 40
+text = "efectiu"
+
+[node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ljqyw")
+
+[node name="borrar" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_1ob1h")
+
+[connection signal="pressed" from="HBoxContainer/borrar" to="." method="_on_borrar_pressed"]
